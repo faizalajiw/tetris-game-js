@@ -1,1 +1,1 @@
-# tetris-game-js
+# Game Tetris Sederhana JavaScript
