@@ -7,38 +7,38 @@ document.addEventListener("DOMContentLoaded", () => {
   let nextRandom = 0;
   let timerId;
   let score = 0;
-  const colors = ["orange", "red", "purple", "green", "blue"];
+  const colors = ["red", "green", "blue", "yellow", "purple", "black", "white"];
 
   //The Tetrominoes
-  const lTetromino = [
+  const aTetromino = [
     [1, width + 1, width * 2 + 1, 2],
     [width, width + 1, width + 2, width * 2 + 2],
     [1, width + 1, width * 2 + 1, width * 2],
     [width, width * 2, width * 2 + 1, width * 2 + 2],
   ];
 
-  const zTetromino = [
+  const bTetromino = [
     [0, width, width + 1, width * 2 + 1],
     [width + 1, width + 2, width * 2, width * 2 + 1],
     [0, width, width + 1, width * 2 + 1],
     [width + 1, width + 2, width * 2, width * 2 + 1],
   ];
 
-  const tTetromino = [
+  const cTetromino = [
     [1, width, width + 1, width + 2],
     [1, width + 1, width + 2, width * 2 + 1],
     [width, width + 1, width + 2, width * 2 + 1],
     [1, width, width + 1, width * 2 + 1],
   ];
 
-  const oTetromino = [
+  const dTetromino = [
     [0, 1, width, width + 1],
     [0, 1, width, width + 1],
     [0, 1, width, width + 1],
     [0, 1, width, width + 1],
   ];
 
-  const iTetromino = [
+  const eTetromino = [
     [1, width + 1, width * 2 + 1, width * 3 + 1],
     [width, width + 1, width + 2, width + 3],
     [1, width + 1, width * 2 + 1, width * 3 + 1],
@@ -46,11 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const theTetrominoes = [
-    lTetromino,
-    zTetromino,
-    tTetromino,
-    oTetromino,
-    iTetromino,
+    aTetromino,
+    bTetromino,
+    cTetromino,
+    dTetromino,
+    eTetromino,
   ];
 
   let currentPosition = 4;
@@ -194,7 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
     checkRotatedPosition();
     draw();
   }
-  /////////
 
   //show up-next tetromino in mini-grid display
   const displaySquares = document.querySelectorAll(".mini-grid div");
@@ -202,12 +201,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayIndex = 0;
 
   //the Tetrominos without rotations
-  const upNextTetrominoes = [
-    [1, displayWidth + 1, displayWidth * 2 + 1, 2], //lTetromino
-    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], //zTetromino
-    [1, displayWidth, displayWidth + 1, displayWidth + 2], //tTetromino
-    [0, 1, displayWidth, displayWidth + 1], //oTetromino
-    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], //iTetromino
+  const upNexcTetrominoes = [
+    [1, displayWidth + 1, displayWidth * 2 + 1, 2], //aTetromino
+    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], //bTetromino
+    [1, displayWidth, displayWidth + 1, displayWidth + 2], //cTetromino
+    [0, 1, displayWidth, displayWidth + 1], //dTetromino
+    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], //eTetromino
   ];
 
   //display the shape in the mini-grid display
@@ -217,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
       square.classList.remove("tetromino");
       square.style.backgroundColor = "";
     });
-    upNextTetrominoes[nextRandom].forEach((index) => {
+    upNexcTetrominoes[nextRandom].forEach((index) => {
       displaySquares[displayIndex + index].classList.add("tetromino");
       displaySquares[displayIndex + index].style.backgroundColor =
         colors[nextRandom];
